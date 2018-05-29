@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Modal, View, ListView, TouchableOpacity, Text, TextInput } from 'react-native'
+import { Modal, View, ListView, TouchableOpacity, Text, TextInput, Dimensions } from 'react-native'
 
+const { width, height } = Dimensions.get('window')
 
 import styles from './styles'
 
@@ -52,11 +53,17 @@ export default class ModalFilterPicker extends Component {
         supportedOrientations={['portrait', 'landscape']}
       >
         <View style={overlayStyle || styles.overlay}>
-          {renderedTitle}
-          {(renderList || this.renderList)()}
-          <View style={cancelContainerStyle || styles.cancelContainer}>
-            {(renderCancelButton || this.renderCancelButton)()}
-          </View>
+			<View style={{    shadowColor: 'rgba(0,0,0,0.1)',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 1, borderRadius: 6, width: width-20, backgroundColor: '#ffffff', height: height-80, overflow: 'hidden'}}>
+	          {renderedTitle}
+	          {(renderList || this.renderList)()}
+	          <View style={cancelContainerStyle || styles.cancelContainer}>
+	            {(renderCancelButton || this.renderCancelButton)()}
+	          </View>
+			</View>
         </View>
       </Modal>
     )
@@ -158,7 +165,9 @@ export default class ModalFilterPicker extends Component {
           style={style}
           onPress={() => this.props.onSelect(key)}
         >
-          <Text style={textStyle}>{label}</Text>
+          <Text style={{fontSize: 18,
+	  	fontFamily: 'Raleway-Regular',
+	  	color: '#3d3d3d', textAlign: 'left', flex: 1}}>{label}</Text>
         </TouchableOpacity>
       )
     }

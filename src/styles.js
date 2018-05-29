@@ -31,6 +31,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  text: {
+	fontSize: 18,
+	fontFamily: 'Raleway-Regular',
+	color: '#3d3d3d'
+  },
   titleTextStyle: {
     flex: 0,
     color: '#fff',
@@ -64,13 +69,15 @@ export default StyleSheet.create({
   },
   filterTextInputContainer: {
     borderBottomWidth: 1,
-    borderBottomColor: '#999'
+    borderBottomColor: '#e4e4e4'
   },
   filterTextInput: {
     paddingVertical: 10,
     paddingHorizontal: 15,
     flex: 0,
-    height: 50
+    height: 50,
+	borderTopLeftRadius: 6,
+	borderTopRightRadius: 6
   },
   categoryStyle: {
     ...optionStyle
@@ -111,7 +118,6 @@ export default StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     color: '#ccc',
-    fontStyle: 'italic',
-    fontSize: 22
+    fontSize: 16
   }
 })
